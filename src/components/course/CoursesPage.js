@@ -7,28 +7,7 @@ import CoursesList from './CoursesList';
 class CoursesPage extends React.Component {
     constructor(props, context) {
         super(props, context);
-        // this.state = {
-        //     course: {
-        //         title: ''
-        //     }
-        // };
 
-        // this.onTitleChange = this.onTitleChange.bind(this);
-        // this.onClickSave = this.onClickSave.bind(this);
-    }
-
-    // onTitleChange(e) {
-    //     const course = this.state.course;
-    //     course.title = e.target.value;
-    //     this.setState({course: course});
-    // }
-    //
-    // onClickSave() {
-    //     this.props.actions.createCourse(this.state.course);
-    // }
-
-    courseRow(course, index) {
-        return <div key={index}>{course.title}</div>;
     }
 
     render() {
@@ -38,8 +17,6 @@ class CoursesPage extends React.Component {
                 <h1>Courses</h1>
                 <h2>Add Coutse</h2>
                 <CoursesList courses={courses}/>
-                {/*<input type="text" onChange={this.onTitleChange} value={this.state.course.title}/>*/}
-                {/*<input type="submit" onClick={this.onClickSave} value="Save"/>*/}
             </div>
         );
     }
