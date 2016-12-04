@@ -54,10 +54,10 @@ const CoursesForm = ({ course, allAuthors, onSave, onChange, loading, errors }) 
 CoursesForm.propTypes = {
     course: PropTypes.object.isRequired,
     allAuthors: PropTypes.array,
-    onChange: PropTypes.function.isRequired,
-    onSave: PropTypes.function.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired,
     loading: PropTypes.bool,
-    errors: PropTypes.function.object
+    errors: PropTypes.func.object
 };
 
 export default CoursesForm;
