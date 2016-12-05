@@ -9,7 +9,7 @@ export function updateCourseSuccess(courses) {
     return { type: types.UPDATE_COURSES_SUCCESS, courses };
 }
 
-export function createCoursesSuccess(courses) {
+export function createCourseSuccess(courses) {
     return { type: types.CREATE_COURSES_SUCCESS, courses };
 }
 
@@ -25,9 +25,9 @@ export function loadCourses() {
     };
 }
 
-export function saveCourse() {
+export function saveCourse(course) {
     return function(dispatch) {
-        return courseApi.saveCourse()
+        return courseApi.saveCourse(course)
             .then(course => {
                 course.is ? dispatch(updateCourseSuccess(course)) : dispatch(createCourseSuccess(course));
             })
