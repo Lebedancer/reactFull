@@ -29,7 +29,6 @@ class ManageCoursePage extends React.Component {
         e.preventDefault();
         this.props.actions.saveCourse(this.state.course);
         this.context.router.push('/courses');
-        // browserHistory.push('/courses');
     }
 
     render() {
@@ -55,8 +54,20 @@ ManageCoursePage.contextTypes = {
     router: PropTypes.object.isRequired
 };
 
+function getCourseById(courses, courseId) {
+    return courses.find(obj=> {
+        return obj.id === courseId;
+    })
+}
+
 function mapStateToProps(state, ownProps) {
-    const course = {id: '', watchHref: '', title: '', authorId: '', lenght: '', category: ''};
+    let course = {id: '', watchHref: '', title: '', authorId: '', lenght: '', category: ''};
+    const courseId = ownProps.params.id;
+
+    if (courseId && state.courseReducer.length) {
+        course = getCourseById(state.courseReducer, courseId);
+    }
+
     const authorsDropdown = state.authorReducer.map(author=> {
         return {
             value: author.id,
