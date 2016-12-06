@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CoursesForms from './CoursesForm';
+import { browserHistory } from "react-router";
 
 class ManageCoursePage extends React.Component {
     constructor(props, context) {
@@ -26,8 +27,9 @@ class ManageCoursePage extends React.Component {
 
     saveCourseState(e) {
         e.preventDefault();
-        debugger;
         this.props.actions.saveCourse(this.state.course);
+        this.context.router.push('/courses');
+        // browserHistory.push('/courses');
     }
 
     render() {
@@ -47,6 +49,10 @@ ManageCoursePage.propTypes = {
     course: PropTypes.object.isRequired,
     authors: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
+};
+
+ManageCoursePage.contextTypes = {
+    router: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
