@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import courseReducer from './courseReducer';
 import authorReducer from './authorReducer';
-import ajaxStatusReducer from './ajaxStatusReducer';
+import numAjaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
     courseReducer,
     authorReducer,
-    ajaxStatusReducer
+    numAjaxCallsInProgress
 });
 
 export default rootReducer;

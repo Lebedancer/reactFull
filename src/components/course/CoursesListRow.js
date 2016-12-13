@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
 
 const CoursesListRow = ({ course }) => {
-    console.log('sdfdsf');
     return (
         <tr>
             <td><a href={course.watchHref} target="_blanck">Watch</a></td>
